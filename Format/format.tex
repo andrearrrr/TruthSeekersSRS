@@ -1,0 +1,80 @@
+\documentclass[a4paper,oneside,titlepage]{report}
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{a4wide}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage[tablegrid,nochapter]{vhistory} 
+\usepackage[nottoc]{tocbibind}
+\usepackage[toc,page]{appendix} 
+\usepackage{pdfpages} 
+\usepackage[rightcaption]{sidecap} 
+\usepackage[pdftex,scale={.8,.8}]{geometry} 
+\usepackage[toc]{glossaries} 
+\usepackage[left,pagewise,modulo]{lineno} 
+\usepackage[pdftex,colorlinks=false,hidelinks,pdfstartview=FitV]{hyperref}
+\usepackage[pagestyles,raggedright]{titlesec}
+\usepackage{
+	array,
+	booktabs,
+	dcolumn, 
+	rotating,
+	shortvrb,
+	units,
+	url,
+	lastpage,
+	longtable,
+	lscape,
+	qtree,
+	skmath,	
+}
+
+\usepackage{color}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5\baselineskip}
+
+\input{base/metadata}
+
+\AtBeginDocument{
+	\maketitle
+	\thispagestyle{empty}
+}
+
+\patchcmd{\chapter}{plain}{short}{}{}
+
+\newpagestyle{long}{
+	\sethead[\thepage][][\chaptername\ \thechapter:\ \chaptertitle]{\chaptername\ \thechapter:\ \chaptertitle}{}{\thepage}
+	\headrule
+}
+
+\newpagestyle{short}{
+	\sethead[\thepage][][]{}{}{\thepage}
+	\headrule
+}
+
+\begin{document}
+
+\pagenumbering{roman}
+\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\pagestyle{short}
+
+\newpage
+
+ \tableofcontents 
+
+\pagestyle{long}
+
+\input{base/history}
+\pagenumbering{arabic}
+
+\include{content/content}
+
+\end{document}

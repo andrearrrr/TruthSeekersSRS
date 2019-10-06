@@ -1,0 +1,384 @@
+\chapter{Introduction}
+\label{ch:intro}
+
+
+\section{Purpose }
+
+This Software Requirements Specification Document (the “SRS”) specifies the TruthSeekers social networking/social media application (the “Application”), which is a platform for its users (“Truthseekers”) to connect with like-minded individuals who share a passion for seeking the truth. Truthseekers can share photos and videos of suspicious occurrences (e.g. unidentified flying objects, secret government agents), discuss alternative theories related to current events, and comment on injustices related to government transparency. This SRS refers to the first release of the Application; feedback from users of the Application on this first release will be used to make improvements for subsequent releases.
+
+\section{Document Conventions}
+
+Section headings of the SRS follow the following format:\\
+
+{\Large\textbf{Main Chapter Title\\ \\}}
+{\large\textbf{1.1	Section\\ \\}}
+1.1.1 Subsection\\ \\
+etc.\\
+
+Regarding requirements, priority is stated explicitly in the requirement description and the order of the requirements list does not denote priority.
+
+\section{Intended Audience and Reading Suggestions}
+
+This SRS is intended to be read by the users of the Application, who will be referred to in this SRS as Truthseekers.
+
+The rest of this SRS contains information about the Application, its users, and its environment (Section 2); the Application’s interfaces (Section 3); the Application’s system features (Section 4); functional requirements/business rules (Section 5); nonfunctional requirements (Section 6); and other requirements (Section 7). Appendices are located at the end of the SRS. The table of contents at the beginning of the SRS details every section in the document.
+
+This SRS is designed to be read sequentially, beginning with section 1 and continuing through the rest of the document.
+
+\section{Product Scope}
+
+The Application is a social network that allows Truthseekers to share photos and videos and to interact with other Truthseekers. However, the scope of this Application is limited to posting content related to conspiracies and discussions about said content. The Application was developed with the purpose of giving a platform for expression to an otherwise marginalized or stigmatized group: conspiracy theorists.
+
+\section{References}
+
+This SRS does not reference any other documents. The formatting of this SRS was adapted from a template available on Overleaf.com, authored by Ajeet Sandu (https://www.overleaf.com/latex/templates/requirements-specification-layout/vbrqbjpzcmfy).
+
+\chapter{Overall Description}
+\label{Overall Description}
+
+\section{Product Perspective}
+
+The idea of the Application was put forth by a self-identifying Truthseeker after he noticed a lack of viewpoints similar to his own on popular social networks such as Facebook, Instagram, Twitter, etc. Within these networks, groups and hashtags that were specific to conspiracies could be created, but the individual wanted a network that was exclusive to Truthseekers. 
+
+The Application will allow Truthseekers to share content with one another in a safe and accepting network of like-minded users. It provides a platform for Truthseekers to speak their mind without fear of ridicule or harassment by the general population.
+
+\section{Product Functions}
+
+At this time, the Application allows Truthseekers to perform the following functions:
+
+\begin{itemize}
+\item Create an account
+\item Login/logout
+\item Complete/edit profile information (name, location, short bio, photo)
+\item Post a photo or a video
+\item Comment on other posts
+\item “Follow” other users
+\item Search for a user
+\item File a spam/abuse report to the developers
+\end{itemize}
+
+\section{User Classes and Characteristics}
+
+User Classes as they pertain to the Application:\\
+
+{\large\textbf{User Class 1: Truthseekers\\\\}}
+\em{Frequency of use}\em: often - the most frequent user class\\
+\em{Functions/features used}\em: All of them\\
+\em{Technical expertise}\em: Low\\
+\em{Permissions}\em: No special permissions\\
+
+{\large\textbf{User Class 2: System Administrators/Developers\\\\}}
+\em{Frequency of use}\em: Regular monitoring, and sporadic use to fix any issues that arise\\
+\em{Functions/features used}\em: Backend maintenance of accounts and the Application\\
+\em{Technical expertise}\em: High\\
+\em{Permissions}\em: Total administrator access to every feature and function of the Application as described in this SRS, but they will not perform actions related to creating an account, posting, commenting, etc.
+
+\section{Operating Environment}
+
+The Application is a mobile application that is designed to work on the Apple and Android operating systems. In future implementations, the Application should be able to run on a desktop browser environment as well.
+
+\section{Design and Implementation Constraints}
+
+As discussed in section 2.4, the Application is designed to operate on two mobile operating systems. The Application will be a multi-OS system, so this must be taken into consideration when implementing it.
+
+\section{User Documentation}
+
+With this first version of the Application, no extra user documentation will be generated or delivered. However, we anticipate that the final version of the Application will include a built-in “help” section that will include tutorials and FAQs.
+
+
+\section{Assumptions and Dependencies}
+
+\begin{itemize}
+\item The biggest factor that could affect the requirements of this SRS is the need to seek further clarification and feedback from the Truthseekers. The Truthseekers will hopefully provide enough feedback on the Application to make any necessary changes in future versions. This feedback could also result in changes to the requirements as set out in sections 3, 4, 5, 6, and 7.
+
+\item The Application will depend on legislation related to the release of information, slander, and freedom of speech. Careful considerations must be made to ensure that the developers of the Application are not held accountable for the content that Truthseekers might post on the Application, should it be in violation of such legislation.
+\end{itemize}
+
+\newpage
+
+\chapter{External Interface Requirements}
+\label{InterfaceRequirements}
+
+\section{User Interfaces}
+
+The Application will feature a typical social network user interface. Upon opening the Application, Truthseekers will be shown the homepage for the Application, which is a typical “news feed” style page showing posts from the accounts that the Truthseeker follows. From this page, the Truthseeker can navigate to their profile page, the profile page of another user, or to a post. Overall, the Application’s user interface will be clean and minimalistic with a light color scheme. \\
+
+Examples of different “pages” in the Application are:
+
+\begin{itemize}
+\item A homepage with a news feed
+\item A profile page for each user
+\item A page for a photo or video post
+\item A settings page
+\item A search page
+\end{itemize}
+
+\section{Hardware Interfaces}
+
+The Application will be used exclusively on smartphones and similar devices for this first implementation. It will be compatible with Apple products (iPhones, iPads) and Android devices. In future implementations, a desktop version of the Application will also be supported. The Application may eventually support use on smartwatches as well. Besides these devices it is designed to run on, the Application will not require any other specialized hardware.
+
+In order to post on their profile, Truthseekers will likely require the use of a camera/microphone on their devices.
+
+
+\section{Software Interfaces}
+
+The Application will interface with a database to store its user data safely and securely. This database will be developed and administered by the same developers who will be developing the Application; exact details regarding the database’s implementation have not yet been determined. \\
+
+The Application will also interface with a mail server in order to send emails about account-related matters to Truthseekers (account verification, password resetting), as well as to handle abuse/spam reports sent by Truthseekers to the system administrators.
+
+
+\section{Communication Interfaces}
+
+The underlying communication interface that the Application uses will depend on the individual device’s operating system, and is not controlled by the Application itself.
+
+\newpage
+
+\chapter{System Features}
+\label{SystemFeatures}
+
+\section{Creating an Account}
+    \quad \textbf{4.1.1 \quad Description and Priority:} \\ \\
+    \null \quad
+    This is a high priority system feature - it is required for any accounts to be created on the Application. The Truthseeker would enter personal information to create an account. \\
+
+    \quad \textbf{4.1.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad Truthseeker enters and confirms valid user-entered data.
+    \item[] Response: \quad System creates an account with given user data and displays that the system has created an account.
+    \item[] Stimulus: \quad Truthseeker enters and confirms invalid user-entered data.
+    \item[] Response: \quad System displays that the system has not created an account.
+    \end{itemize}
+    
+    \quad \textbf{4.1.3 \quad Functional Requirements:}
+    \begin{enumerate}
+        \item Open the Application
+        \item Click "Sign Up!"
+        \item Enter valid information for each textbox
+        \item Confirm user data on the bottom of the page by clicking "Create Account"
+    \end{enumerate}
+
+\section{Login/logout}
+    \quad \textbf{4.2.1 \quad Description and Priority:}\\ \\
+    \null \quad This is a high priority system feature - it is required for a Truthseeker to access their account. It is also important that a Truthseeker is able to log out of their account, to protect their privacy. \\
+    
+    \quad \textbf{4.2.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad Truthseeker enters and confirms valid user-entered data.
+    \item[] Response: \quad System confirms that the username/password combination is correct and logs the user in to the Application.
+    \item[] Stimulus: \quad Truthseeker enters and confirms invalid user-entered data.
+    \item[] Response: \quad System confirms that the username/password combination is incorrect or does not exist, and displays an error to the Truthseeker.
+    \end{itemize}
+    
+    \quad \textbf{4.2.3 \quad Functional Requirements - login:}
+    \begin{enumerate}
+        \item Open the Application
+        \item Click "Login"
+        \item Enter valid information for each textbox
+        \item Confirm user data on the bottom of the page by clicking "Login"
+    \end{enumerate}
+    
+    \quad \textbf{4.2.4 \quad Functional Requirements - logout:}
+    \begin{enumerate}
+        \item Application is already open
+        \item Click "Logout"
+        \item Confirm logout by selecting "Yes" in the confirmation popup window
+    \end{enumerate}
+
+\section{Making a Post}
+    \quad \textbf{4.3.1 \quad Description and Priority:}\\ \\
+    \null \quad This is a medium priority system feature. Some Truthseekers will likely not make posts, but will simply create accounts to view others' posts. The Truthseeker would create and share a post to the user's followers. \\
+    
+    \quad \textbf{4.3.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad Truthseeker selects a photo/video to post and confirms a caption.
+    \item[] Response: \quad System creates post with given text and shares the post to the Truthseeker's followers onto the followers' front page.
+    \end{itemize}
+    
+    \quad \textbf{4.3.3 \quad Functional Requirements:}
+    \begin{enumerate}
+        \item Open home page
+        \item Click "Create a Post"
+        \item Enter data into fields
+        \item Confirm post by clicking the "Spread Truth" button
+    \end{enumerate}
+
+\section{Commenting on a Post}
+    \quad \textbf{4.4.1 \quad Description and Priority:}\\ \\
+    \null \quad This is a medium priority system feature. Truthseekers are not required to comment on posts. The Truthseeker would enter a comment under another post. \\
+    
+    \quad \textbf{4.4.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad Truthseeker enters and confirms text, photo, or other media file in the comment section of a post.
+    \item[] Response: \quad System adds the user inputted comment on the selected post.
+    \item[] Stimulus: \thinspace \quad Truthseeker tries to add a blank comment with no content.
+    \item[] Response: \quad System produces an error message.
+    \end{itemize}
+    
+    \quad \textbf{4.4.3 \quad Functional Requirements:}
+    \begin{enumerate}
+        \item Open a post
+        \item Click "Add Comment" under the post
+        \item Enter data into comment
+        \item Confirm comment by clicking the "Comment" button
+    \end{enumerate}
+
+\section{Following/Unfollowing a User}
+    \quad \textbf{4.5.1 \quad Description and Priority:}\\ \\
+    \null \quad This is a medium priority system feature. Truthseekers are not required to follow other accounts. The Truthseeker would follow or unfollow the another Truthseeker. Followers of another Truthseeker can see that followed Truthseeker's posts.\\
+    
+    \quad \textbf{4.5.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad Truthseeker clicks the "Follow" button on another unfollowed Truthseeker.
+    \item[] Response: \quad System creates a follow connection between the two users. System sends the requested followed user a message notifying them of their new follower.
+    \item[] Stimulus: \quad Truthseeker clicks the "Unfollow" button on a followed Truthseeker.
+    \item[] Response: \quad System removes the existing follow connection between the user and currently followed user. No message is sent to the unfollowed Truthseeker notifing them that they have been unfollowed.
+    \end{itemize}
+    
+    \quad \textbf{4.5.3 \quad Functional Requirements:}
+    \begin{enumerate}
+        \item Open another Truthseeker's profile page
+        \item Click the "Follow/Unfollow" button
+    \end{enumerate}
+
+
+\section{Editing Profile Information}
+    \quad \textbf{4.6.1 \quad Description and Priority:}\\ \\
+    \null \quad This is a medium priority system feature. This information is required to create an account, but a Truthseeker may never modify it. The Truthseeker would edit personal information on their existing account. \\
+    
+    \quad \textbf{4.6.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad Truthseeker enters and confirms valid user-entered data in their profile's personal information section.
+    \item[] Response: \quad System edits the existing account with given user data.
+    \end{itemize}
+    
+    \quad \textbf{4.6.3 \quad Functional Requirements:}
+    \begin{enumerate}
+        \item Open own profile page
+        \item Click "Edit Profile" 
+        \item Enter and confirm user password
+        \item Edit personal information
+        \item Confirm any edits
+    \end{enumerate}
+
+
+\section{Searching for a User}
+    \quad \textbf{4.7.1 \quad Description and Priority:}\\ \\
+    \null \quad This is a medium priority system feature. The Truthseeker would enter keywords to search for another Truthseeker in the search bar. The Truthseeker can see other Truthseeker's profiles.\\
+    
+    \quad \textbf{4.7.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad Truthseeker enters keywords in the search bar.
+    \item[] Response: \quad System displays Truthseekers with relevant data given the entered keywords.
+    \item[] Stimulus: \quad Truthseeker selects a Truthseeker's profile given by the search.
+    \item[] Response: \quad System opens that Truthseeker's profile page.
+    \end{itemize}
+    
+    \quad \textbf{4.7.3 \quad Functional Requirements:}
+    \begin{enumerate}
+        \item Open the search page
+        \item Click the search bar
+        \item Enter keywords into the search bar
+        \item Press any profile to open profile page
+    \end{enumerate}
+
+
+\section{Submitting a Spam/Abuse Report}
+    \quad \textbf{4.8.1 \quad Description and Priority:}\\ \\
+    \null \quad This is a high priority system feature. It is imperative that Truthseekers have the ability to report abuse and/or spam to the Application's developers. The Truthseeker would select a problematic Truthseeker and report that account to the system. \\
+    
+    \quad \textbf{4.8.2 \quad Stimulus/Response Sequences:}
+    \begin{itemize}
+    \item[] Stimulus: \thinspace \quad User enters another user into the report page.
+    \item[] Response: \quad System accepts the report request and sends the report to the report request queue, which is managed by the developers.
+    \end{itemize}
+    
+    \quad \textbf{4.8.3 \quad Functional Requirements:}
+    \begin{enumerate}
+        \item Open the "Report a User" page
+        \item Enter the required information into the report form
+        \item Check box confirming that report is valid and true
+        \item Click "Confirm Report Submission" button
+    \end{enumerate}
+
+\newpage
+
+\chapter{Functional Requirements/Business Rules}
+\label{FRequirements}
+
+List of functions available to users based on role:
+
+\section{All Users}
+{5.1.1 \quad	Login to TruthSeekers application with username and password \\
+5.1.2 \quad	Change their own password \\
+5.1.3 \quad	Create an account (Truthseeker user privileges only) \\
+5.1.4 \quad	Log out of the Application 
+}
+
+\section{Truthseekers}
+{5.2.1 \quad	Edit profile information \\
+5.2.2 \quad	Create a post (photo or video) \\
+5.2.3 \quad Comment on a post \\
+5.2.4 \quad Search for a user \\
+5.2.5 \quad Follow another user \\
+5.2.6 \quad View list of followed accounts \\
+5.2.7 \quad View list of followers \\
+5.2.8 \quad File a spam/abuse report \\
+5.2.9 \quad Delete their own account 
+}
+
+\section{System Administrator/Developers}
+{5.3.1 \quad Create an administrator account, including their own \\
+5.3.2 \quad Receive a spam/abuse report \\
+5.3.3 \quad Delete another user’s account
+}
+
+\newpage
+
+\chapter{Nonfunctional Requirements}
+\label{NFRequirements}
+
+\section{General Business Requirements}
+
+The Application will need a start up cost of \$1,000,000 to cover the costs of programmers, marketers, equipment, and other staff. We need multiple development teams, including front-end development, back-end development, data scientists, quality control, software architects, and designers. We are estimating a total of 60 members on our development team. The marketing team will require roughly 15 members. Our development and marketing teams need equipment including computers, desks, chairs, and cubicles.
+
+\section{Performance Requirements}
+
+The Application must support 50,000 users for this first implementation. Because the Application is targeted at a niche group, its usage is projected to be slow to start. As the Application inevitably grows more popular among Truthseekers, this modest estimate is expected to increase. Subsequent versions of the Application will likely be designed to handle far more users. \\
+
+Response times for the Application will depend on individual operating systems, but it is expected to perform at a rate that is comparable to most other social networking applications, such as Facebook, Instagram, and Twitter.
+
+\section{Security Requirements}
+
+Due to the sensitive nature of the content that will be shared on the Application and the possibility of government intervention, steps must be taken to protect the user information that the Application stores. With this in mind, the database that the Application utilizes to store and retrieve said information must be kept secure by its developers. 
+
+Accounts will be kept secure with industry-standard password requirements (numbers, special characters) and encryption services. 
+
+\section{Software Quality Attributes}
+
+The attribute that the Application places the most emphasis on is usability. The Application was developed first and foremost for Truthseekers, and their experience when using the Application will be the most important consideration when developing it. 
+
+Security is another important software quality attribute for the Application, as Truthseekers will trust that they can express their opinions freely on the Application without fear of persecution. 
+
+\newpage
+
+\chapter{Other Requirements}
+\label{OtherRequirements}
+
+\section{Other Requirements}
+
+At this time, there are no other requirements for the Application. This section may be updated after receiving feedback from the Truthseekers and/or other stakeholders with an interest in the Application.
+
+\begin{appendices}
+\chapter{To Be Determined List}
+The following is a list of items to be determined after the first release of the Application:
+
+\begin{itemize}
+\item How to implement the Application’s desktop browser version
+\item If the Application should offer a smartwatch version, and if so, how to implement it
+\item Feedback on the Application from the Truthseekers who use this first implementation of it
+\end{itemize}
+
+
+\end{appendices}
+
+
