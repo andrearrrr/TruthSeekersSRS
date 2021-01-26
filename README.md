@@ -1,4 +1,4 @@
-# TruthSeekersSRS
+# TruthSeekersSRS: a fictional, satirical social networking application
 A Software Requirements Specification Document for a fictional, satirical social networking application called TruthSeekers.  
 
 Created for CMPT 376W, Summer 2019. Partner project.
